@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	  <title>AngularJs to SpringBoot</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="/js/angularJsApp.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+
+<body>
+<div class="container" ng-app="payvision" ng-controller="payvisionController">
+	<h3>Payvision Challenge</h3>
+	<div id="actions">
+		<h5 style="display: inline;">Actions</h5>
+		<h5 style="display: inline;padding-left: 30px;">Currency</h5>
+		<h5 style="display: inline;">OrderBy</h5>
+	</div>
+	<div id="actions">
+		<select ng-model="selectedAction" ng-options="x for x in listActions" style="display: inline;">
+		</select>
+		<select ng-model="selectedCurrencyCode" ng-options="x for x in listCurrencyCodes" style="display: inline;">
+		</select>
+		<select ng-model="selectedOrderBy" ng-options="x for x in listOrderBys" style="display: inline;">
+		</select>
+		<button ng-click="search()">Search <span class="glyphicon glyphicon-search"></span></button>
+	</div>
+    <div id="transactionlist" class="row col-md-7 table-responsive">
+    	<table class="table table-bordered table-hover data-table sort display">
+    		<thead>
+    		<tr>
+    			<th ng-click="orderByMe('card.holderName')">Name</th>
+   				<th ng-click="orderByMe('brandId')">Brand</th>
+   				<th ng-click="orderByMe('card.lastFourDigits')">Last 4 digits</th>
+   				<th ng-click="orderByMe('action')">Transaction type</th>
+   				<th ng-click="orderByMe('amount')">Amount</th>
+   				<th ng-click="orderByMe('currencyCode')">Currency</th>
+ 			</tr>
+ 			</thead>
+ 			<tbody ng-repeat="tran in listTransactions | orderBy:myOrderBy" 
+                 ng-controller="RowCtrl" 
+                 ng-click="toggleRow()" 
+                 ng-switch on="isSelected()">
+  			<tr  ng-class-even="'info'" ng-class-odd="'success'">
+    			<td>{{ tran.card.holderName | uppercase}}</td>
+    			<td>{{ tran.brandId}}</td>
+    			<td>XXXX {{ tran.card.lastFourDigits}}</td>
+    			<td>{{ tran.action}}</td>
+    			<td>{{ tran.amount}}</td>
+    			<td>{{ tran.currencyCode}}</td>
+  			</tr>
+            <tr ng-switch-when="true">
+                <th>id</th>
+                <th>trackingCode</th>
+                <th>firstSixDigits</th>
+                <th>expiryMonth</th>
+                <th>expiryYear</th>
+            </tr>
+            <tr ng-switch-when="true">
+                <td>{{tran.id}}</td>
+                <td>{{tran.trackingCode}}</td>
+                <td>{{tran.card.firstSixDigits}}</td>
+                <td>{{tran.card.expiryMonth}}</td>
+                <td>{{tran.card.expiryYear}}</td>
+            </tr>
+  			</tbody>
+		</table>
+    </div>
+</div>
+</body>
+</html>

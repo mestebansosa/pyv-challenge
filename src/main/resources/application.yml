@@ -1,0 +1,64 @@
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
+debug: false # Enable debug logs.
+trace: false # Enable trace logs.
+
+# IDENTITY (ContextIdApplicationContextInitializer)
+spring.application.name: payvision-recruitment-challenge
+
+# PROFILES
+spring.profiles.active: default
+
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+server.port: 9100
+# server.address: 192.168.1.130
+# server.servlet.context-path: /api
+
+# rest.template.enabled: true
+   
+# DATA REST (RepositoryRestProperties)
+spring.data.rest.basePath: /
+
+# AUTO-CONFIGURATION
+spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration,org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration,org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+
+management.endpoints.web.exposure.include: "*"
+management.endpoints.shutdown.enabled: true
+
+## Use default logging config
+#logging.config: classpath:production.xml
+## To provide custom logging configuration
+## logging.config: /usr/local/vpp/custom-logger-config.xml
+#
+#
+## --- Rest Template properties
+rest.template:
+     enabled: true
+     maxTotal: 2000
+     defaultMaxPerRoute: 2000
+     connectTimeout: 5000
+     socketTimeout: 5000
+     username: code-challenge
+     password: payvisioner
+     host: jovs5zmau3.execute-api.eu-west-1.amazonaws.com
+     path: prod/transactions
+     
+
+# --- Jetty properties
+#jetty.thread.pool.enabled: true
+#jetty.thread.pool.maxThreads : 2000
+#jetty.thread.pool.minThreads : 100
+
+# --- Jetty Access Log properties
+#jetty.access.log.enabled: false
+#jetty.access.log.origin: true
+#jetty.access.log.latency: true
+#jetty.access.log.date-format: dd/MMM/yyyy:HH:mm:ss.SSS Z
+#jetty.access.log.custom-field: true
+#jetty.access.log.custom-field-name: concurrentRequestCounter
+
+
+

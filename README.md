@@ -49,7 +49,9 @@ It should be executed with the maven command: **spring-boot:run**
 
 To generate the executable jar file, the maven command **install** will generate a jar file called: **gs-rest-service-0.1.0.jar**
 
-## Execution with the jar file: 
+## Execution with the jar file:
+You can find it here, under the target\ directory.
+
 In any machine with java 8 installed, execute: **java -jar gs-rest-service-0.1.0.jar**
 
 When the service is up, the you can open the console in your browser with http://localhost:9100/transactions and you will see:

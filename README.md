@@ -52,6 +52,10 @@ To generate the executable jar file, the maven command **install** will generate
 ## Execution with the jar file: 
 In any machine with java 8 installed, execute: **java -jar gs-rest-service-0.1.0.jar**
 
+When the service is up, the you can open the console in your browser with http://localhost:9100/transactions and you will see:
+![image](https://user-images.githubusercontent.com/26966488/43990739-08e1c3ba-9d60-11e8-8172-529aba7a12ca.png)
+
+
 ## TODO:
 - I would prefer to separate the application in two services. The console service and the service itself. It should be two different processes. It is better that each service do what they have to do.
 - The console HTML includes the css. It is better to separate the look and feel in a ccs configuration apart.

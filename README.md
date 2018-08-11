@@ -53,7 +53,16 @@ To generate the executable jar file, the maven command **install** will generate
 In any machine with java 8 installed, execute: **java -jar gs-rest-service-0.1.0.jar**
 
 When the service is up, the you can open the console in your browser with http://localhost:9100/transactions and you will see:
+
 ![image](https://user-images.githubusercontent.com/26966488/43990739-08e1c3ba-9d60-11e8-8172-529aba7a12ca.png)
+
+An example applying filters is:
+
+![image](https://user-images.githubusercontent.com/26966488/43990802-f376b9e4-9d60-11e8-9786-3f358e1d22e3.png)
+
+An example extending one row:
+
+![image](https://user-images.githubusercontent.com/26966488/43990811-0fa3cee0-9d61-11e8-8ec0-ddecf362e8d5.png)
 
 
 ## TODO:
